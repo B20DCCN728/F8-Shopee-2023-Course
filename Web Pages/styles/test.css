@@ -1,0 +1,21 @@
+CREATE TRIGGER Check_CustomerName_Trigger
+ON [dbo].[Clients]
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM inserted
+        WHERE Name LIKE '%[0-9]%'
+    )
+    BEGIN
+        -- In ra thông báo lỗi
+        PRINT N'Tên khách hàng không được chứa số'
+
+        ROLLBACK TRAN
+    END
+    ELSE
+        BEGIN 
+                PRINT(N'Thêm khách hàng thành công')
+	END
+END

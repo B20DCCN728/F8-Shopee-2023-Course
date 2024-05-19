@@ -1,0 +1,39 @@
+<!-- Form đăng kí -->
+<form id="registerForm">
+    <!-- Các trường nhập liệu -->
+    <input type="text" name="username" placeholder="Tên đăng nhập">
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Mật khẩu">
+    <input type="password" name="confirmPassword" placeholder="Xác nhận mật khẩu">
+    
+    <!-- Tùy chọn đăng nhập -->
+    <p>Bạn đã có tài khoản? <a href="#" onclick="showLoginForm()">Đăng nhập</a></p>
+    
+    <!-- Nút đăng kí -->
+    <button type="submit">Đăng kí</button>
+  </form>
+  
+  <!-- Form đăng nhập -->
+  <form id="loginForm" style="display: none;">
+    <!-- Các trường nhập liệu -->
+    <input type="text" name="username" placeholder="Tên đăng nhập">
+    <input type="password" name="password" placeholder="Mật khẩu">
+    
+    <!-- Tùy chọn đăng kí -->
+    <p>Bạn chưa có tài khoản? <a href="#" onclick="showRegisterForm()">Đăng kí</a></p>
+    
+    <!-- Nút đăng nhập -->
+    <button type="submit">Đăng nhập</button>
+  </form>
+  
+  <script>
+    function showLoginForm() {
+      document.getElementById("registerForm").style.display = "none";
+      document.getElementById("loginForm").style.display = "block";
+    }
+    
+    function showRegisterForm() {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("registerForm").style.display = "block";
+    }
+  </script>
